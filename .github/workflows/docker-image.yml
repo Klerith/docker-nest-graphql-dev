@@ -13,18 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Revisión de Código
-      uses: actions/checkout@v3
-      with:
-        # Leer todos los commits
-        fetch-depth: 0
-    
+       
+    - uses: actions/checkout@v3
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v4.0.3
       with:
         major_pattern: "BREAKING CHANGE:"
         minor_pattern: "feat:"
-        format: "${major}.${minor}.${patch}-prerelease${increment}"
+        format: "${major}.${minor}.${patch}"
       id: version
 
      
