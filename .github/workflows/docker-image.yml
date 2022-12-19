@@ -28,16 +28,9 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        NEW_VERSION: ${{ steps.version.outputs.mayor }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "NEW SEMANTIC VERSION: ${{ steps.version.outputs.* }}"
+        echo "NEW SEMANTIC VERSION: $NEW_VERSION
 
-    - uses: actions/checkout@v3
-    - name: Build image
-      run: | 
-        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:$VERSION
 
-    - uses: actions/checkout@v3
-    - name: Push the Docker image
-      run: | 
-        docker push klerith/nest-graphql-dev:$VERSION
