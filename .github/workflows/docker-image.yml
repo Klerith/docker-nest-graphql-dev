@@ -22,7 +22,7 @@ jobs:
         branch: main
         minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
-        change_path: "version/version-service"
+        change_path: "src/version"
         user_format_type: "json"
       id: version
 
