@@ -16,11 +16,11 @@ jobs:
       VERSION: 0.0.1
     
     steps:
-    - uses: PaulHatch/semantic-version@v5.0.0-beta2
-      with:
-        format: "${major}.${minor}.${patch}"
-    - id: version
-    - name: Git Semantic Version
+#     - uses: PaulHatch/semantic-version@v5.0.0-beta2
+#       with:
+#         format: "${major}.${minor}.${patch}"
+#     - id: version
+#     - name: Git Semantic Version
 
     
     - uses: actions/checkout@v3
