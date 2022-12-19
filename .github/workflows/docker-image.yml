@@ -12,9 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    env:
-      VERSION: 0.0.2
-    
     steps:
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v5.0.0-beta2
@@ -22,7 +19,6 @@ jobs:
         branch: main
         minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
-        change_path: "src/version"
         user_format_type: "json"
       id: version
 
@@ -35,6 +31,6 @@ jobs:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "NEW SEMANTIC VERSION: $NEW_VERSION"
+        echo "NEW SEMANTIC VERSION: $NEW_VERSION!!"
 
 
