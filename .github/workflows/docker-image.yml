@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      VERSION: ${{fromJson(steps.set_var.outputs.packageJson).version}}
+      VERSION: 0.0.0
 
     steps:
     - uses: actions/checkout@v3
     - name: Build & Push the Docker image
       run: | 
         docker login -u klerith -p ${{ secrets.DOCKERPASSWORD }}
-        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:$VERSION
-        docker push klerith/nest-graphql-dev:$VERSION
+        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:${{fromJson(steps.set_var.outputs.packageJson).version}}
+        docker push klerith/nest-graphql-dev:${{fromJson(steps.set_var.outputs.packageJson).version}}
