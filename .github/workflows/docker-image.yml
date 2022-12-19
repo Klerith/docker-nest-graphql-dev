@@ -12,17 +12,18 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    env:
-      VERSION: 0.0.1
-
     steps:
+    - id: version
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v5.0.0-beta2
+      with: 
+        format: "${major}.${minor}.${patch}"
 
     
     - uses: actions/checkout@v3
     - name: Build & Push the Docker image
       run: | 
+        echo "${{ steps.version.outputs }}"
         docker login -u klerith -p ${{ secrets.DOCKERPASSWORD }}
         docker build . --file Dockerfile --tag klerith/nest-graphql-dev:$VERSION
         docker push klerith/nest-graphql-dev:$VERSION
