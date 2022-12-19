@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build & Push the Docker image
+      run: | 
+        VERSION=$(node -p "require('./package.json').version")
+        docker login -u klerith -p ${{ secrets.DOCKERPASSWORD }}
+        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:${{VERSION}}
+        docker push klerith/nest-graphql-dev:${{VERSION}}
