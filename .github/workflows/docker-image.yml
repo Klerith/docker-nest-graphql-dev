@@ -16,11 +16,12 @@ jobs:
       VERSION: 0.0.2
     
     steps:
-    - uses: PaulHatch/semantic-version@v5.0.0-beta2
+    - name: Git Semantic Version
+      uses: PaulHatch/semantic-version@v5.0.0-beta2
       with:
         format: "${major}.${minor}.${patch}"
-    - id: version
-    - name: Git Semantic Version
+      id: version
+
      
     - uses: actions/checkout@v3
     - name: Docker login
