@@ -46,7 +46,8 @@ jobs:
         docker build . --file Dockerfile --tag klerith/nest-graphql-dev:latest
 
     - name: Push the Docker image
-      NEW_VERSION: ${{ steps.version.outputs.version }}
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: | 
         docker push klerith/nest-graphql-dev:$VERSION
         docker push klerith/nest-graphql-dev:latest
