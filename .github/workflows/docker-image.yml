@@ -49,7 +49,7 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: | 
-        docker push klerith/nest-graphql-dev:$VERSION
+        docker push klerith/nest-graphql-dev:$NEW_VERSION
         docker push klerith/nest-graphql-dev:latest
 
 
