@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Revisión de Código
+      uses: actions/checkout@v3
+      with:
+        # Leer todos los commits
+        fetch-depth: 0
+    
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v4.0.3
       with:
