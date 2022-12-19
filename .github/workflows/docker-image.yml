@@ -18,8 +18,8 @@ jobs:
     steps:
     - id: version
     - name: Git Semantic Version
-      uses: PaulHatch/semantic-version@v5.0.0-beta2
-      with: 
+    - uses: PaulHatch/semantic-version@v5.0.0-beta2
+      with:
         format: "${major}.${minor}.${patch}"
 
     
