@@ -14,12 +14,12 @@ jobs:
     
     steps:
     - name: Git Semantic Version
-      uses: PaulHatch/semantic-version@v5.0.0-beta2
+      uses: PaulHatch/semantic-version@v4.0.3
       with:
-        branch: main
+#        branch: main
         minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
-        user_format_type: "json"
+#        user_format_type: "json"
       id: version
 
      
