@@ -31,6 +31,6 @@ jobs:
         NEW_VERSION: ${{ steps.version.outputs.mayor }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "NEW SEMANTIC VERSION: $NEW_VERSION
+        echo "NEW SEMANTIC VERSION: $NEW_VERSION"
 
 
