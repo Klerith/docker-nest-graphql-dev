@@ -24,7 +24,7 @@ jobs:
       with:
         major_pattern: "BREAKING CHANGE:"
         minor_pattern: "feat:"
-        format: "${major}.${minor}.${patch}-prerelease${increment}"
+        format: "${major}.${minor}.${patch}-prerelease-${increment}"
       id: version
 
      
