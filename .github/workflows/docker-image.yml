@@ -19,8 +19,9 @@ jobs:
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v5.0.0-beta2
       with:
-        format: "${major}.${minor}.${patch}"
-        change_path: "semantic-versions"
+        format: "${major}.${minor}.${patch}-prerelease${increment}"
+        change_path: "src/my-service"
+        user_format_type: "json"
       id: version
 
      
