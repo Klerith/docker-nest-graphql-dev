@@ -38,4 +38,17 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "NEW SEMANTIC VERSION: $NEW_VERSION!!"
 
+    - name: Build image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
+      run: | 
+        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:$NEW_VERSION
+        docker build . --file Dockerfile --tag klerith/nest-graphql-dev:latest
+
+    - name: Push the Docker image
+      NEW_VERSION: ${{ steps.version.outputs.version }}
+      run: | 
+        docker push klerith/nest-graphql-dev:$VERSION
+        docker push klerith/nest-graphql-dev:latest
+
 
