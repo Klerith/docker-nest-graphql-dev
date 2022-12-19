@@ -22,7 +22,7 @@ jobs:
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v4.0.3
       with:
-        major_pattern: "BREAKING CHANGE:"
+        major_pattern: "major:"
         minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease-${increment}"
       id: version
