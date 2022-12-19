@@ -14,8 +14,11 @@ jobs:
     
     steps:
        
-    - uses: actions/checkout@v3
-    
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+      
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v5.0.0-beta2
       with:
