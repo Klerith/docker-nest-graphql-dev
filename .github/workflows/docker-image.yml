@@ -20,7 +20,6 @@ jobs:
       uses: PaulHatch/semantic-version@v5.0.0-beta2
       with:
         branch: main
-        tag_prefix: "v"
         minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
         change_path: "version/version-service"
